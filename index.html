@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xi Minēri - A Partnership Proposal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --text-color: #3C3232;
+            --accent-color: #BC9C2F;
+            --bg-color: #FFFFFF;
+            --light-grey: #f9f9f9;
+            --header-height: 70px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
+        body { font-family: 'Barlow', sans-serif; font-weight: 400; line-height: 1.7; color: var(--text-color); background-color: var(--bg-color); }
+        .container { max-width: 1100px; margin: auto; padding: 2rem; }
+        h1, h2, h3, h4 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; color: var(--text-color); letter-spacing: 0.5px; }
+        .section-title { text-align: center; margin-bottom: 3rem; margin-top: 5rem; }
+        .section-title h2 { font-size: 3rem; }
+        .section-title h3 { font-size: 2.5rem; }
+        .intro-text { text-align: center; max-width: 750px; margin: 0 auto 3rem auto; font-size: 1.2rem; font-weight: 300; }
+        .main-header { background-color: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height); z-index: 1000; border-bottom: 1px solid #eee; }
+        .main-nav { display: flex; justify-content: center; align-items: center; height: 100%; }
+        .main-nav ul { list-style: none; display: flex; padding: 0; }
+        .main-nav ul li a { text-decoration: none; color: var(--text-color); padding: 0.5rem 1.5rem; font-family: 'Barlow', sans-serif; font-weight: 700; letter-spacing: 0.05em; transition: color 0.3s ease; }
+        .main-nav ul li a:hover { color: var(--accent-color); }
+        #presentation { padding-top: var(--header-height); }
+        .hero { text-align: center; padding: 2rem 0; background-color: #f9f9f9; }
+        .hero img { max-width: 100%; height: auto; max-height: calc(90vh - var(--header-height)); }
+        .win-win-section { background: var(--light-grey); padding: 5rem 2rem; text-align: center; border-top: 1px solid #eee; border-bottom: 1px solid #eee;}
+        .win-win-section h3 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .win-win-section p { max-width: 800px; margin: 0 auto; font-size: 1.2rem; }
+        .feature-section, .feature-section-alt { display: flex; align-items: center; gap: 4rem; margin: 6rem auto; max-width: 1200px; padding: 0 2rem; }
+        .feature-section-alt { flex-direction: row-reverse; }
+        .feature-image.vertical { flex: 1; text-align: center; }
+        .feature-image.vertical img { width: 100%; max-width: 350px; display: block; border-radius: 15px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .feature-text { flex: 1.5; }
+        .feature-text h3 { font-size: 2.8rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .feature-text p { font-size: 1.1rem; }
+        .perfume-showcase { display: flex; justify-content: center; align-items: center; gap: 2rem; padding: 2rem; flex-wrap: wrap; width: 100%; }
+        .perfume-bottle { border: 1px solid #eee; padding: 1rem; border-radius: 15px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .perfume-bottle img { height: 300px; transition: transform 0.3s ease; }
+        .perfume-bottle:hover img { transform: scale(1.05); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .team-member { text-align: center; }
+        .team-member img { width: 150px; height: 150px; border-radius: 15px; object-fit: cover; margin-bottom: 1rem; }
+        .team-member .role { font-weight: bold; color: var(--accent-color); }
+        #business-plan, #contract { background-color: var(--light-grey); padding: 5rem 2rem; border-top: 1px solid #eee; }
+        #contract { background-color: var(--bg-color); }
+        .accordion-header { background-color: #fff; color: var(--text-color); cursor: pointer; padding: 1.5rem 2rem; width: 100%; text-align: left; border: 1px solid #eee; border-radius: 15px; transition: all 0.3s ease; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-header:hover { border-color: var(--accent-color); }
+        .accordion-header.active { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+        .accordion-header h2 { font-size: 2rem; color: var(--text-color); }
+        .accordion-header .plus-minus { font-size: 2rem; color: var(--accent-color); transform: rotate(0deg); transition: transform 0.3s ease;}
+        .accordion-header.active .plus-minus { transform: rotate(45deg); }
+        .accordion-content { padding: 0 2.5rem; background-color: white; max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.5s ease-out; border: 1px solid #eee; border-top: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; }
+        .accordion-content.active { padding: 2.5rem; }
+        .simulator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 2rem 0; }
+        .simulator { border: 1px solid #eee; padding: 2rem; border-radius: 15px; }
+        .simulator h4 { text-align: center; margin-bottom: 0.5rem; font-size: 1.8rem; }
+        .sim-desc { font-size: 0.9rem; text-align: center; margin-bottom: 2rem; min-height: 40px; }
+        .slider-group label { font-weight: bold; margin-bottom: 0.5rem; display: block; }
+        .slider { width: 100%; accent-color: var(--accent-color); }
+        .financials-grid-v2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; text-align: center; border-top: 1px solid #eee; padding-top: 2rem; margin-top: 2rem; }
+        .financial-card-v2 { padding: 1.5rem; border-radius: 15px; border: 1px solid #ddd; background: #fff; }
+        .financial-card-v2 h4 { font-size: 1.1rem; color: #555; height: 50px; font-family: 'Barlow', sans-serif; font-weight: bold;}
+        .financial-card-v2 .amount { font-size: 2.5rem; font-weight: bold; color: var(--text-color); }
+        .financial-card-v2.profit .amount { color: var(--accent-color); }
+        #full-contract-content-wrapper { max-height: 500px; overflow-y: auto; border: 1px solid #eee; padding: 1.5rem; margin-bottom: 2rem; border-radius: 15px; }
+        .contract-article h3 { color: var(--accent-color); font-size: 1.8rem; }
+        fieldset { border: 1px solid #ddd; border-radius: 15px; padding: 1.5rem; margin-top: 1.5rem; }
+        legend { padding: 0 0.5rem; font-weight: bold; font-family: 'Barlow Condensed', serif; font-size: 1.2rem; }
+        .option-label { display: block; border: 2px solid #ddd; padding: 1rem; margin-top: 1rem; border-radius: 15px; cursor: pointer; }
+        .option-label.selected { border-color: var(--accent-color); background-color: #fffaf0; }
+        input[type="radio"] { opacity: 0; position: absolute; }
+        #contract-summary { margin-top: 2rem; padding: 1.5rem; background: var(--light-grey); border-radius: 15px; }
+        .cta-button { display: block; width: 100%; padding: 1rem; background-color: var(--accent-color); color: white; border: none; font-size: 1.5rem; cursor: pointer; margin-top: 2rem; font-family: 'Barlow Condensed', serif; transition: background-color 0.3s ease; border-radius: 15px;}
+        .cta-button:hover { background-color: var(--text-color); }
+        .main-footer { background: var(--text-color); color: var(--light-color); text-align: center; padding: 3rem; margin-top: 4rem;}
+        @media(max-width: 992px) { .feature-section, .feature-section-alt { flex-direction: column; } .feature-text { text-align: center; } }
+        @media(max-width: 768px) { .main-nav { padding: 1rem; } .hero { height: auto; padding: 0; } .hero img { max-height: 50vh; width: auto; } .simulator-grid, .presentation-grid { grid-template-columns: 1fr; } .perfume-showcase { gap: 1rem; } .perfume-bottle img { height: 250px; } }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#presentation">The Brand</a></li>
+                <li><a href="#business-plan">The Business</a></li>
+                <li><a href="#contract">The Agreement</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="presentation">
+            <div class="hero"><img src="https://i.postimg.cc/Z5dV7rC5/Wallpaper-Logo.png" alt="MINĒRI Brand Logo Wallpaper"></div>
+            <div class="container">
+                <div class="section-title"><h2>MINĒRI is not a place, it is a signature.</h2></div>
+                <p class="intro-text">This proposal formalizes the transformation of MINĒRI into a personal brand embodied by its creator, Xi Minēri. The project crystallizes around a unique location: Villa Minēri, a private residence and creative workshop in the heart of Hoi An. It's an invitation to step into a creator's world, to share his art of living, and to witness the act of creation firsthand.</p>
+            </div>
+            <div class="feature-section-alt">
+                <div class="feature-image vertical"><img src="https://i.postimg.cc/yY9GysHw/Workshop-perfume.png" alt="The Perfume Atelier of Xi Minēri"></div>
+                <div class="feature-text"><h3>The Perfume Atelier: The Heart of the Brand</h3><p>The beating heart of Villa Minēri is the Perfume Atelier, the creative studio where Xi Minēri, an Oenologist & Perfumer, crafts unique "olfactory vintages." The villa is a showcase for this primary activity, opening its doors for exclusive experiences like atelier tours and bespoke perfume creations, which form a prestigious and high-value revenue stream.</p></div>
+            </div>
+            <div class="feature-section">
+                <div class="feature-text"><h3>The Art of Conviviality</h3><p>The villa is also a place for living and communion. It's offered for exclusive private rentals, where guests are welcomed into the creator's universe. The experience is orchestrated around a daily "apéritif dînatoire" hosted by Xi, creating an atmosphere of authentic sharing that generates high demand and positive reviews.</p></div>
+                 <div class="feature-image vertical"><img src="https://i.postimg.cc/x8NvYf5Y/Villa-groupe-pool.png" alt="Guests enjoying the Art of Conviviality at Villa Minēri"></div>
+            </div>
+            <div class="feature-section-alt">
+                <div class="feature-image vertical"><img src="https://i.postimg.cc/RFD7j6cX/Woman-perfume.png" alt="A unique perfume creation from MINĒRI"></div>
+                <div class="feature-text"><h3>A Partnership to Magnify Your Asset</h3><p>We seek a partner, not a landlord. By transforming your property into a dynamic and sought-after asset, we directly align our success with yours. Our model offers a fixed rent plus a <strong>15% commission on the net profits from ALL brand activities</strong>, offering a potential income far superior to a classic rental agreement while ensuring your property is maintained to the highest standards.</p></div>
+            </div>
+            <div class="container">
+                <div class="section-title"><h3>The Perfume Collection</h3></div>
+            </div>
+            <div class="perfume-showcase">
+                <div class="perfume-bottle"><img src="https://i.postimg.cc/XNth5XTf/Perfume-1.png" alt="MINĒRI Perfume Bottle 1"></div>
+                <div class="perfume-bottle"><img src="https://i.postimg.cc/QNFwVcnN/Perfume-2.png" alt="MINĒRI Perfume Bottle 2"></div>
+                <div class="perfume-bottle"><img src="https://i.postimg.cc/HjGQkqvM/Perfume-3.png" alt="MINĒRI Perfume Bottle 3"></div>
+                <div class="perfume-bottle"><img src="https://i.postimg.cc/4ddvLbhY/Perfume-4.png" alt="MINĒRI Perfume Bottle 4"></div>
+                <div class="perfume-bottle"><img src="https://i.postimg.cc/GpzJxS90/Perfume-5.png" alt="MINĒRI Perfume Bottle 5"></div>
+            </div>
+            <div class="container">
+                <div class="section-title"><h3>The Team</h3></div>
+                <div class="team-grid">
+                    <div class="team-member"><img src="https://i.postimg.cc/TP1ZLBrZ/Xi-Lerale.jpg" alt="Portrait of Xi Minēri"><h4>Xi Minēri</h4><p class="role">Founder, Oenologist & Perfumer, Host</p></div>
+                    <div class="team-member"><img src="https://i.postimg.cc/9fksG1bz/An-Thuong.png" alt="Portrait of An Thuong"><h4>An Thuong</h4><p class="role">Co-Founder & CTO</p></div>
+                    <div class="team-member"><img src="https://i.postimg.cc/Hx7R35vz/Thao-Linh.png" alt="Portrait of Thao Linh"><h4>Thao Linh</h4><p class="role">Manager & Head of Hospitality</p></div>
+                </div>
+            </div>
+        </section>
+        <section id="business-plan">
+            <div class="container">
+                <div class="accordion">
+                    <button class="accordion-header"><h2>The Interactive Business Model</h2><span class="plus-minus">+</span></button>
+                    <div class="accordion-content">
+                        <div class="bp-section">
+                            <h3>A Synergistic & Transparent Model</h3>
+                            <p>Our business model is built on two synergistic pillars: Hospitality and Perfumery. The luxury accommodation generates stable cash flow, while the perfume atelier defines the brand's prestige and high-value potential. This simulator allows you to explore the revenue scenarios. All assumptions are based on the provided business plan.</p>
+                            <div class="simulator-grid">
+                                <div class="simulator">
+                                    <h4>Villa & Events Simulator</h4>
+                                    <p class="sim-desc">This simulates the revenue from renting the villa for exclusive stays and private events.</p>
+                                    <div class="slider-group"><label for="occupancyRate">Occupied Nights / month: <span id="occupancyValue">20</span></label><input type="range" id="occupancyRate" min="10" max="25" value="20" class="slider"></div>
+                                    <div class="slider-group"><label for="eventRentals">Private Events / month: <span id="eventRentalsValue">2</span></label><input type="range" id="eventRentals" min="0" max="8" value="2" class="slider"></div>
+                                </div>
+                                <div class="simulator">
+                                    <h4>Atelier & Perfumery Simulator</h4>
+                                     <p class="sim-desc">This simulates the high-margin revenue from direct sales of perfumes and creative workshops.</p>
+                                    <div class="slider-group"><label for="bottlesSold">Perfume Bottles Sold / month: <span id="bottlesSoldValue">15</span></label><input type="range" id="bottlesSold" min="5" max="50" value="15" class="slider"></div>
+                                    <div class="slider-group"><label for="workshopRevenue">Workshops & Experiences Revenue / month: $<span id="workshopRevenueValue">3000</span></label><input type="range" id="workshopRevenue" min="1000" max="10000" value="3000" step="500" class="slider"></div>
+                                </div>
+                            </div>
+                            <h3>Financial Summary</h3>
+                            <div class="financials-grid-v2">
+                                <div class="financial-card-v2"><h4>Total Gross Revenue</h4><p class="amount" id="simGrossRevenue"></p></div>
+                                <div class="financial-card-v2"><h4>Owner's Total Income (Rent + 15% of Net Profit)</h4><p class="amount" id="simOwnerShare"></p></div>
+                                <div class="financial-card-v2 profit"><h4>MINĒRI Net Profit (for Thang Long Event)</h4><p class="amount" id="simMineriProfit"></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contract">
+             <div class="container">
+                 <div class="accordion">
+                    <button class="accordion-header"><h2>The Interactive Partnership Agreement</h2><span class="plus-minus">+</span></button>
+                    <div class="accordion-content">
+                        <p class="intro-text">Here is the full Master Lease Agreement. Please review the articles and select your preferred options. You can then generate a printable version based on your choices.</p>
+                        <div id="full-contract-content-wrapper">
+                            </div>
+                        <div id="contract-summary">
+                            <h3>Summary of Your Selections</h3>
+                            <div id="summary-content"><ul id="summary-list"></ul></div>
+                        </div>
+                        <button id="printButton" class="cta-button">Generate & Print Full Agreement</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer"><p>&copy; 2025 MINĒRI. All Rights Reserved.</p></footer>
+
+    <script>
+        window.addEventListener('load', function() {
+
+            // --- ACCORDION LOGIC ---
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const isActive = content.style.maxHeight;
+                    header.classList.toggle('active');
+                    if (isActive) {
+                        content.style.maxHeight = null;
+                        header.querySelector('.plus-minus').textContent = '+';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        header.querySelector('.plus-minus').textContent = '-';
+                    }
+                });
+            });
+
+            // --- DUAL SIMULATOR LOGIC ---
+            function initializeSimulator() {
+                const allSliders = document.querySelectorAll('.slider');
+                if (allSliders.length === 0) return;
+
+                function updateAllFinancials() {
+                    const occupancy = parseInt(document.getElementById('occupancyRate').value);
+                    const eventCount = parseInt(document.getElementById('eventRentals').value);
+                    const bottlesSold = parseInt(document.getElementById('bottlesSold').value);
+                    const workshopRevenue = parseInt(document.getElementById('workshopRevenue').value);
+
+                    document.getElementById('occupancyValue').textContent = occupancy;
+                    document.getElementById('eventRentalsValue').textContent = eventCount;
+                    document.getElementById('bottlesSoldValue').textContent = bottlesSold;
+                    document.getElementById('workshopRevenueValue').textContent = workshopRevenue.toLocaleString();
+
+                    const nightlyRate = 1000, eventRate = 2000, bottlePrice = 290, bottleCostRate = 0.20, fAndBRate = 60, avgGuests = 8;
+                    const fixedRent = 3000, otherFixedCosts = 600 + 300 + 500 + 1000, ownerCommRate = 0.15;
+                    
+                    const residentialRevenue = occupancy * nightlyRate;
+                    const eventRentalRevenue = eventCount * eventRate;
+                    const perfumeRevenue = bottlesSold * bottlePrice;
+                    const totalGrossRevenue = residentialRevenue + eventRentalRevenue + perfumeRevenue + workshopRevenue;
+                    
+                    const fAndBCost = occupancy * avgGuests * fAndBRate;
+                    const perfumeCost = perfumeRevenue * bottleCostRate;
+                    const totalOperatingCosts = fAndBCost + perfumeCost + otherFixedCosts;
+                    
+                    const netProfit = totalGrossRevenue - totalOperatingCosts - fixedRent;
+                    
+                    const ownerCommission = netProfit > 0 ? netProfit * ownerCommRate : 0;
+                    const ownerTotalIncome = fixedRent + ownerCommission;
+                    const mineriNetProfit = netProfit - ownerCommission;
+
+                    document.getElementById('simGrossRevenue').textContent = '$' + Math.round(totalGrossRevenue).toLocaleString();
+                    document.getElementById('simOwnerShare').textContent = '$' + Math.round(ownerTotalIncome).toLocaleString();
+                    document.getElementById('simMineriProfit').textContent = '$' + Math.round(mineriNetProfit).toLocaleString();
+                }
+                
+                allSliders.forEach(slider => slider.addEventListener('input', updateAllFinancials));
+                updateAllFinancials();
+            }
+            
+            // --- CONTRACT LOGIC ---
+            const contractData = {
+                header: `<h2>MASTER LEASE AGREEMENT</h2><p><strong>BETWEEN THE UNDERSIGNED:</strong></p><p><strong>THE OWNER:</strong><br/>[FULL NAME OF OWNER]<br/>[FULL ADDRESS OF OWNER]<br/>[PHONE NUMBER OF OWNER]<br/>[EMAIL ADDRESS OF OWNER]</p><p>AND</p><p><strong>THE MASTER LESSEE:</strong><br/>The company Thang Long Event<br/>Represented by Mr. Xi Minēri (Alexis Lerale), Founder</p>`,
+                articles: [
+                    { id: 1, title: "Article 1: Purpose of the Agreement", content: "<p>This agreement aims at the provision by the Owner to the Master Lessee of the property described hereinafter, for its commercial exploitation under the MINĒRI brand, dedicated to luxury tourist accommodation and event organization. This partnership seeks to maximize the Villa's value and generate optimized revenues for both Parties.</p>" },
+                    { id: 2, title: "Article 2: Property Description", content: "<p>This agreement pertains to the luxury villa located at [FULL ADDRESS OF THE VILLA], including [NUMBER] bedrooms and facilities such as a private swimming pool, garden, etc.</p>" },
+                    { id: 3, title: "Article 3: Term of the Agreement and Renewal Conditions", content: "<p>The initial term of this Master Lease Agreement is for twelve (12) consecutive months. At the end of the initial term, the agreement shall be tacitly renewed for successive periods of twelve (12) months, unless either Party notifies the other of its intention not to renew at least three (3) months before the expiry of the current term.</p>" },
+                    { id: 4, title: "Article 4: Financial Conditions", content: "<p><strong>Monthly Fixed Rent:</strong> The Master Lessee undertakes to pay the Owner a fixed monthly rent of 3,000 USD (Three Thousand United States Dollars). This is a negotiable baseline.</p><p><strong>Commission on Net Profit:</strong> In addition to the fixed rent, the Master Lessee undertakes to pay the Owner a commission of 15% (Fifteen percent) on the net profits generated by all MINĒRI activities.</p>", options: [{ name: "securityDeposit", legend: "A. Regarding the Security Deposit", choices: [{ value: "A.1", title: "Option A.1: Temporary Exemption and Gradual Constitution.", text: "No security deposit required at the start of the contract. The security deposit will be progressively constituted by 10% of MINĒRI's monthly net profits, starting from the fourth month of activity, until it reaches the equivalent of 1.5 months of fixed rent." },{ value: "A.2", title: "Option A.2: Staggered Payment over the First 6 Months.", text: "The security deposit, equivalent to 1.5 months of fixed rent, will be staggered into 6 equal installments over the first six months of the contract." }]}, { name: "initialRent", legend: "B. Regarding the Initial Rent Period", choices: [{ value: "B.1", title: "Option B.1: Initial Grace Period (Commission Only).", text: "For the first two (2) months of the contract, only the profit share commission will be due. The fixed rent of 3,000 USD/month will become payable from the third month onwards." },{ value: "B.2", title: "Option B.2: Reduced Fixed Rent for 3 Months.", text: "The fixed rent will be reduced to 1,500 USD/month (i.e., 50% of the initial amount) for the first three (3) months of the contract. The full fixed rent will become payable from the fourth month onwards." }]}]},
+                    { id: 5, title: "Article 5: Property Use and Commercial Authorization", content: "<p>The Owner expressly authorizes the company Thang Long Event to use the Villa for commercial purposes, including luxury accommodation and events, and grants the right to sublease to third parties (Guests).</p>" },
+                    { id: 6, title: "Article 6: Allocation of Responsibilities", content: "<p><strong>Owner's Responsibilities:</strong> The Owner remains responsible for the structural elements and heavy infrastructure of the Villa.<br><strong>MINĒRI's Responsibilities:</strong> MINĒRI undertakes the operational management and routine maintenance.</p>", options: [{ name: "cleaning", legend: "C. Specific Responsibility: Deep Cleaning & Laundry", choices: [{ value: "C.1", title: "Option C.1: Owner Fully Handles.", text: "The Owner is responsible for organizing and financing all deep cleaning and laundry." },{ value: "C.2", title: "Option C.2: MINĒRI Manages via Owner's Services.", text: "MINĒRI will organize deep cleaning using the Owner's usual service providers, with costs reimbursed." },{ value: "C.3", title: "Option C.3: MINĒRI Fully Handles.", text: "MINĒRI is responsible for organizing, supervising, and financing all deep cleaning and laundry." }]}]},
+                    { id: 7, title: "Article 7: Insurance", content: "<p>The Owner maintains multi-risk home insurance. MINĒRI maintains Professional Civil Liability insurance.</p>" },
+                    { id: 8, title: "Article 8: General Obligations", content: "<p>The remaining articles cover General Obligations, Dispute Resolution (prioritizing amicable solutions), Early Termination, and General Provisions according to Vietnamese law.</p>" }
+                ],
+                footer: `<br/><br/><br/><table style="width: 100%; margin-top: 5em; border-collapse: collapse;"><tr><td style="width: 50%; padding-top: 4em; vertical-align: bottom; text-align: center;">_________________________<br/><strong>THE OWNER</strong><br/>[FULL NAME OF OWNER]</td><td style="width: 50%; padding-top: 4em; vertical-align: bottom; text-align: center;">_________________________<br/><strong>THE MASTER LESSEE</strong><br/>For Thang Long Event, Mr. Xi Minēri</td></tr></table>`
+            };
+
+            function buildContractHTML() {
+                const container = document.getElementById('full-contract-content-wrapper');
+                if (!container) return;
+                let html = '';
+                contractData.articles.forEach(article => {
+                    html += `<div class="contract-article"><h3>${article.title}</h3>${article.content || ''}`;
+                    if (article.options) {
+                        article.options.forEach(optionGroup => {
+                            html += `<fieldset><legend>${optionGroup.legend}</legend><div class="option-group">`;
+                            optionGroup.choices.forEach(choice => {
+                                html += `<label class="option-label"><input type="radio" name="${optionGroup.name}" value="${choice.value}"><div><strong>${choice.title}</strong><p>${choice.text}</p></div></label>`;
+                            });
+                            html += `</div></fieldset>`;
+                        });
+                    }
+                    html += `</div>`;
+                });
+                container.innerHTML = html;
+            }
+            
+            function initializeContract() {
+                buildContractHTML();
+                const contractOptions = document.querySelectorAll('#contract input[type="radio"]');
+                const summaryList = document.getElementById('summary-list');
+                function updateSummary() {
+                    if (!summaryList) return;
+                    const selectedOptions = document.querySelectorAll('#contract input[type="radio"]:checked');
+                    document.querySelectorAll('.option-label').forEach(label => label.classList.remove('selected'));
+                    selectedOptions.forEach(radio => radio.closest('.option-label').classList.add('selected'));
+                    summaryList.innerHTML = ''; 
+                    if (selectedOptions.length === 0) {
+                        summaryList.innerHTML = `<li><p>Please select an option in each category...</p></li>`;
+                    } else {
+                        selectedOptions.forEach(option => {
+                            const groupNameEl = option.closest('fieldset').querySelector('legend');
+                            const optionTitleEl = option.closest('.option-label').querySelector('strong');
+                            const li = document.createElement('li');
+                            li.innerHTML = `<strong>${groupNameEl.textContent}:</strong> ${optionTitleEl.textContent}`;
+                            summaryList.appendChild(li);
+                        });
+                    }
+                    const accordionContent = summaryList.closest('.accordion-content');
+                    if (accordionContent && accordionContent.style.maxHeight) {
+                        accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+                    }
+                }
+                contractOptions.forEach(option => option.addEventListener('change', updateSummary));
+                updateSummary();
+            }
+            
+            const printButton = document.getElementById('printButton');
+            if(printButton) {
+                printButton.addEventListener('click', () => {
+                    let printableHTML = `<h1>MASTER LEASE AGREEMENT</h1>${contractData.header}`;
+                    contractData.articles.forEach(article => {
+                        printableHTML += `<h3>${article.title}</h3>`;
+                        // For articles with options, find the selected one and only print that.
+                        if (article.options) {
+                            printableHTML += article.content;
+                            article.options.forEach(optionGroup => {
+                                const selectedOptionNode = document.querySelector(`input[name="${optionGroup.name}"]:checked`);
+                                printableHTML += `<h4>${optionGroup.legend}</h4>`;
+                                if (selectedOptionNode) {
+                                    const choiceData = optionGroup.choices.find(c => c.value === selectedOptionNode.value);
+                                    printableHTML += `<div style="border:1px solid #ccc; padding:10px; margin-top: 0.5em;"><strong>${choiceData.title}</strong><p>${choiceData.text}</p></div>`;
+                                } else {
+                                    printableHTML += `<p><em>No option selected for this section.</em></p>`;
+                                }
+                            });
+                        } else {
+                            printableHTML += article.content;
+                        }
+                    });
+                    printableHTML += contractData.footer;
+
+                    const printWindow = window.open('', '_blank');
+                    printWindow.document.write(`
+                        <html><head><title>MINĒRI - Partnership Agreement for Signature</title>
+                        <style>
+                            body { font-family: 'Times New Roman', Times, serif; line-height: 1.5; margin: 2cm; } 
+                            h1, h2, h3, h4, strong, legend { font-family: 'Barlow Condensed', sans-serif; } 
+                            h1 { font-size: 24pt; text-align: center; }
+                            h3 { color: #3C3232; border-top: 1px solid #ccc; padding-top: 1em; margin-top: 2em; font-size: 16pt; }
+                            h4 { font-size: 14pt; }
+                            p { margin: 0.5em 0; }
+                        </style></head>
+                        <body>${printableHTML}</body></html>
+                    `);
+                    printWindow.document.close();
+                    printWindow.focus();
+                    setTimeout(() => { printWindow.print(); }, 500);
+                });
+            }
+
+            initializeSimulator();
+            initializeContract();
+        });
+    </script>
+</body>
+</html>
